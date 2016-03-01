@@ -1,0 +1,61 @@
+---
+title: "Boston Real Estate"
+author: "Ke Li"
+date: "March 1, 2016"
+output: 
+  html_document: 
+    keep_md: yes
+---
+## Read in the dataset
+```{r}
+boston = read.csv("DataSets/boston.csv")
+str(boston)
+```
+  + Per capita crime rate
+  + Proportion of area used for industry
+  + census track
+  + concentration of Nitrious Oxides in the air
+  + average rooms per dwelling
+  + proportion of owner-occupied units built before 1940
+  + how far the tract is from center of employment in Boston
+  + is measure of closeness to important highways
+  + property tax rate per $10,000 of value
+  + pupil-teacher ratio by town
+  
+  ...
+
+## Exploratary Data Analaysis - Geography
+
+```{r}
+# Boston Map Reflection
+plot(boston$LON, boston$LAT)
+# Charles River
+points(boston$LON[boston$CHAS==1], boston$LAT[boston$CHAS==1], col="blue", pch=19)
+# MIT
+points(boston$LON[boston$TRACT==3531], boston$LAT[boston$TRACT==3531], col="red", pch=19)
+# Watertown, my house
+points(boston$LON[boston$TRACT==3701], boston$LAT[boston$TRACT==3701], col="green", pch=19)
+```
+
+## Air Pollution
+```{r}
+summary(boston$NOX)
+```
+```{r}
+# Boston Map Reflection
+plot(boston$LON, boston$LAT)
+# NOX concentration
+points(boston$LON[boston$NOX>0.53], boston$LAT[boston$NOX>0.53], col="grey", pch=19)
+```
+
+## Housing Price
+```{r}
+summary(boston$MEDV)
+```
+```{r}
+# Boston Map Reflection
+plot(boston$LON, boston$LAT)
+# NOX concentration
+points(boston$LON[boston$MEDV>21.20], boston$LAT[boston$MEDV>21.20], col="blue", pch=19)
+```
+

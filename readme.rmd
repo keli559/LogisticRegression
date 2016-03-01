@@ -2,7 +2,9 @@
 title: "Coronary Heart Disease"
 author: "Ke Li"
 date: "February 29, 2016"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 ## Motivation
 - ![google](images/chd_google.png)

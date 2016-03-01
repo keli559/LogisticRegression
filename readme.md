@@ -2,7 +2,7 @@
 Ke Li  
 February 29, 2016  
 ## Motivation
-- ![google](images/chd_google.png)
+- ![google](https://github.com/likekeustc/LogisticRegression/blob/master/images/chd_google.PNG?raw=true)
 
 ## Motivation
 

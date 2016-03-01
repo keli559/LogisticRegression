@@ -2,7 +2,7 @@
 title: "Coronary Heart Disease"
 author: "Ke Li"
 date: "February 29, 2016"
-output: ioslides_presentation
+output: html_document
 ---
 ## Motivation
 - ![google](images/chd_google.png)
@@ -23,6 +23,7 @@ output: ioslides_presentation
 
 
 ## Methodology
+### 10-Year CHD Risk Prediction
 
 - Identify Risk Factors
 - Predict Heart Disease
@@ -31,9 +32,36 @@ output: ioslides_presentation
 
 Now we are going to use these factors to predict the 10-year risk CHD
 
-## Data sets
+## Datasets
 
-```{r}
+```{r, echo=FALSE}
 framingham = read.csv("DataSets/framingham.csv")
 str(framingham)
 ```
+## Logistic Regression Modeling
+```{r, echo=FALSE}
+library(caTools)
+set.seed(1000)
+```
+- Split data into Training and Testing
+```{r}
+split=sample.split(framingham$TenYearCHD, SplitRatio=0.65)
+train = subset(framingham, split=TRUE)
+test = subset(framingham, split=FALSE)
+```
+
+##Logistic Regression Modeling
+- Least important: Gender, Age, SysBP...
+- Important: currentSmoker, BPMeds, diabetes, BMI, education...
+
+```{r, echo=FALSE}
+framinghamLog=glm(TenYearCHD ~ ., family = binomial, data=framingham)
+summary(framinghamLog)
+```
+
+
+
+
+
+
+
